@@ -9,7 +9,7 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   socket.on('add user',function(data){
-    socket.username = msg;
+    socket.username = data;
   io.emit('add user',{username: socket.username});
   });
   socket.on('chat message', function(msg){
