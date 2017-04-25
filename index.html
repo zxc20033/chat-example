@@ -30,7 +30,7 @@
         }
         socket.emit("add user",name);
         socket.on('add user',function(data){
-         appendMessage(data.username+"已加入");
+        $('#messages').append($('<li>').text(data.username+"已加入"));
         });
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
