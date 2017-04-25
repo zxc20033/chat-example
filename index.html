@@ -33,7 +33,7 @@ $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
           name = "guest";
         }
         socket.emit("add user",{username: name,
-                            location:userloc});
+                            loc:userloc});
         socket.on('add user',function(data){
         $('#messages').append($('<li>').text(data.username+" from "+data.loc+"已加入"));
         });
