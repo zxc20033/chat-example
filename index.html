@@ -24,6 +24,10 @@
     <script>
       $(function () {
         var socket = io();
+                var name = prompt("請輸入暱稱","guest");
+        if(name=="" || name==null){
+          name = "guest";
+        }
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
           $('#m').val('');
