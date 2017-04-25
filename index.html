@@ -25,7 +25,7 @@
       $(function () {
         var socket = io();
         $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
-  alert(JSON.stringify(data, null, 2));
+ console.log(JSON.stringify(data, null, 2));
 });
                 var name = prompt("請輸入暱稱","guest");
         if(name=="" || name==null){
