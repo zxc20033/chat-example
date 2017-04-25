@@ -11,9 +11,9 @@ io.on('connection', function(socket){
   
   socket.on('add user',function(msg){
     socket.username = msg.username;
-    socket.location = msg.location;
+    socket.loc = msg.loc;
   io.emit('add user',{username: socket.username,
-                     location: socket.location
+                     loc: socket.loc
                      });
   });
   
