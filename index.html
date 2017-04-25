@@ -27,6 +27,7 @@
         var userloc;
 $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
  userloc=data.country_name;
+   alert(userloc);
 });
         var name = prompt("請輸入暱稱","guest");
         if(name=="" || name==null){
