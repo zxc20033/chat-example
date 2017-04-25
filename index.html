@@ -35,7 +35,7 @@ $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
         socket.emit("add user",{username: name,
                             location:userloc});
         socket.on('add user',function(data){
-        $('#messages').append($('<li>').text(data.username+" from "+data.location+"已加入"));
+        $('#messages').append($('<li>').text(data.username+" from "+data.loc+"已加入"));
         });
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
