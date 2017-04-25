@@ -10,8 +10,11 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   
   socket.on('add user',function(msg){
-    socket.username = msg;
-  io.emit('add user',{username: socket.username});
+    socket.username = msg.username;
+    socket.location = msg.location;
+  io.emit('add user',{username: socket.username,
+                     location: socket.location
+                     });
   });
   
   socket.on('chat message', function(msg){
