@@ -24,15 +24,18 @@
     <script>
       $(function () {
         var socket = io();
-        var userip;
-        document.write("Your IP is :", userip);
-                var name = prompt("請輸入暱稱","guest");
+        var userloc;
+$.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+ userloc=data.country_name;
+});
+        var name = prompt("請輸入暱稱","guest");
         if(name=="" || name==null){
           name = "guest";
         }
-        socket.emit("add user",name);
+        socket.emit("add user",{username: name,
+                            location:userloc});
         socket.on('add user',function(data){
-        $('#messages').append($('<li>').text(data.username+"已加入"));
+        $('#messages').append($('<li>').text(data.username+" from "+data.location+"已加入"));
         });
         $('form').submit(function(){
           socket.emit('chat message', $('#m').val());
@@ -45,6 +48,5 @@
         });
       });
     </script>
-    <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
   </body>
 </html>
