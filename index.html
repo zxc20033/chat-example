@@ -24,9 +24,8 @@
     <script>
       $(function () {
         var socket = io();
-        $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
- console.log(JSON.stringify(data, null, 2));
-});
+        var userip;
+        document.write("Your IP is :", userip);
                 var name = prompt("請輸入暱稱","guest");
         if(name=="" || name==null){
           name = "guest";
@@ -46,5 +45,6 @@
         });
       });
     </script>
+    <script type="text/javascript" src="https://l2.io/ip.js?var=userip"></script>
   </body>
 </html>
