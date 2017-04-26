@@ -28,13 +28,15 @@
 $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
  userloc=data.country_name;
    alert(userloc);
-});
+});   
         var name = prompt("請輸入暱稱","guest");
         if(name=="" || name==null){
           name = "guest";
         }
+        if (json.success) {
         socket.emit("add user",{username: name,
                             loc:userloc});
+        }
         socket.on('add user',function(data){
         $('#messages').append($('<li>').text(data.username+" from "+data.loc+"已加入"));
         });
